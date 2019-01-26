@@ -1,7 +1,7 @@
 # Maintainer: Chocobo1 <chocobo1 AT archlinux DOT net>
 
 pkgname=wpa_supplicant-git
-pkgver=2.6.r2185.gac1f59156
+pkgver=2.7.r13.g4c02242d0
 pkgrel=1
 pkgdesc="A daemon program controlling the wireless connection"
 arch=('i686' 'x86_64')
@@ -22,6 +22,11 @@ prepare() {
   cd "$srcdir"
 
   echo "CONFIG_OWE=y" >> "$srcdir/config"
+  echo "CONFIG_SAE=y" >> "$srcdir/config"
+  echo "CONFIG_RRM=y" >> "$srcdir/config"
+  echo "CONFIG_WNM=y" >> "$srcdir/config"
+  echo "CONFIG_DRIVER_HOSTAP=y" >> "$srcdir/config"
+  echo "CONFIG_DRIVER_NL80211=y" >> "$srcdir/config"
 }
 
 pkgver() {
